@@ -11,8 +11,9 @@
 namespace bbt {
     struct Rating {
         explicit Rating(double max_points = 50.0) {
-            m_mu = max_points / 2.0;
-            m_sigma = max_points / 3.0;
+            auto point_center = max_points / 2.0;
+            m_mu = point_center;
+            m_sigma = point_center / 3.0;
             m_sigma_sq = std::pow(m_sigma, 2.0);
         }
 
@@ -50,9 +51,9 @@ namespace bbt {
     };
 
     struct Rater {
-        explicit Rater(double point_center = 25.0, double variance_factor = 4.16666666) : m_max_points(
-                point_center * 2) {
-            assert(variance_factor <= point_center);
+        explicit Rater(double max_points = 50.0, double variance_factor = 25.0 / 6.0) : m_max_points(
+                max_points) {
+            assert(variance_factor <= (max_points / 2.0));
             auto beta = variance_factor;
             beta_sq = beta * beta;
         }

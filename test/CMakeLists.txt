@@ -17,6 +17,7 @@ add_executable(
 )
 target_link_libraries(
   bbt_test
+  bbt::bbt
   gtest_main
 )
 
