@@ -1,4 +1,4 @@
-# bbtpp
+# bbt++
 C++ port of [bbt](https://github.com/DataWraith/bbt)
 
 # Differences to the original
